@@ -1,5 +1,4 @@
 
-
 fn main() {
 
     // HALF OF A SQUARE: 
@@ -90,10 +89,26 @@ fn main() {
         }    
     }
 
-    for n in id {
-            
+    fn multiply_numb_in_odd_position(id: Vec<u32>) -> Vec<u32> {    
+        let response = id.clone().into_iter().map(|x| {
+            let res1 : Option<usize> = id.iter().position(|&s| s == x);
+ 
+            if(res1.unwrap() & 1 != 0) {
+                x * 2
+            } else {
+                x
+            }
+        }).collect::<Vec<_>>();
+
+        response
     }
 
-    
-    println!("test: {}", 171&1 != 0);
+    let all_numbers = multiply_numb_in_odd_position(id);
+
+    fn checksum(all_numbers: Vec<u32>) {
+        let sum: i32 = all_numbers.iter().sum();
+    }
+
+    checksum(all_numbers)
 }
+
